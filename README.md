@@ -11,7 +11,7 @@ These problems focus on the fundamentals of goroutines and basic channel usage.
 7. [**Simple Counter (Race Condition):** Implement a global counter incremented by multiple goroutines without any synchronization. Observe the race condition.](./beginner/ex7/solve.go)
 8. [**Counter with Mutex:** Fix the simple counter problem using `sync.Mutex` to prevent race conditions.](./beginner/ex8/solve.go)
 9. [**Concurrent Summation:** Calculate the sum of elements in an array concurrently by dividing the array into chunks and processing each chunk in a separate goroutine.](./beginner/ex9/solve.go)
-10. **Producer-Consumer (Unbuffered):** Implement a simple producer-consumer pattern using an unbuffered channel where one goroutine produces items and another consumes them.
+10. [**Producer-Consumer (Unbuffered):** Implement a simple producer-consumer pattern using an unbuffered channel where one goroutine produces items and another consumes them.](./beginner/ex10/solve.go)
 11. **Producer-Consumer (Buffered):** Implement a producer-consumer pattern using a buffered channel.
 12. **Fan-Out/Fan-In (Basic):** Create a fan-out pattern where a single producer sends data to multiple worker goroutines, and then collect results from these workers (fan-in) into a single channel.
 13. **Select Statement (Basic):** Use a `select` statement to receive from two different channels.
