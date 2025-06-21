@@ -14,7 +14,7 @@ These problems focus on the fundamentals of goroutines and basic channel usage.
 10. [**Producer-Consumer (Unbuffered):** Implement a simple producer-consumer pattern using an unbuffered channel where one goroutine produces items and another consumes them.](./beginner/ex10/solve.go)
 11. [**Producer-Consumer (Buffered):** Implement a producer-consumer pattern using a buffered channel.](./beginner/ex11/solve.go)
 12. [**Fan-Out/Fan-In (Basic):** Create a fan-out pattern where a single producer sends data to multiple worker goroutines, and then collect results from these workers (fan-in) into a single channel.](./beginner/ex12/solve.go)
-13. **Select Statement (Basic):** Use a `select` statement to receive from two different channels.
+13. [**Select Statement (Basic):** Use a `select` statement to receive from two different channels.](./beginner/ex13/Solve.go)
 14. **Select with Default:** Add a `default` case to a `select` statement.
 15. **Goroutine Leak (Basic):** Create a goroutine that runs indefinitely without a way to stop it. Identify why this is a leak.
 16. **Stopping a Goroutine (Channel Signal):** Stop a goroutine using a `done` channel.
