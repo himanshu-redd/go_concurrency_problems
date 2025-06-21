@@ -17,17 +17,18 @@ func Solve(){
 	buffChan:= make(chan int, 10)
 	unbuffChan := make(chan Pair)	
 
-	wg.Add(12)
+	wg.Add(3)
 	consumerWg.Add(10)
 	go produce(&wg, buffChan)
 	for i := 1; i <= 10; i++ {
-		go consume(&wg, &consumerWg, buffChan, unbuffChan, i)
+		go consume(&consumerWg, buffChan, unbuffChan, i)
 	}
 
-	go func(consumerWg *sync.WaitGroup, ch chan Pair){
+	go func(wg *sync.WaitGroup, consumerWg *sync.WaitGroup, ch chan Pair){
+		wg.Done()
 		consumerWg.Wait()
 		close(unbuffChan)
-	}(&consumerWg, unbuffChan)
+	}(&wg, &consumerWg, unbuffChan)
 
 	go readUnbuffChan(&wg, unbuffChan)
 
@@ -42,8 +43,7 @@ func produce(wg *sync.WaitGroup, ch chan int){
 	close(ch)
 }
 
-func consume(wg *sync.WaitGroup, cWg *sync.WaitGroup, bChan chan int, uChan chan Pair, consumerId int) {
-	defer wg.Done()
+func consume(cWg *sync.WaitGroup, bChan chan int, uChan chan Pair, consumerId int) {
 	defer cWg.Done()
 	for val := range bChan {
 		uChan <- Pair{
