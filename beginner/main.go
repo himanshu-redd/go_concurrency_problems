@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/concurrency/ex7"
+	"github.com/concurrency/ex8"
 )
 
 func main(){
 	fmt.Println("start")
-	ex7.Solve()
+	ex8.Solve()
 	fmt.Println("finish")
 }
