@@ -7,7 +7,7 @@ These problems focus on the fundamentals of goroutines and basic channel usage.
 3. [**Basic Channel Communication:** Create two goroutines. One sends an integer to a channel, and the other receives and prints it.](\./beginner/ex3/solve.go)
 4. [**Buffered Channel:** Use a buffered channel of capacity 3. Send 3 integers and then receive and print them.](\./beginner/ex4/solve.go)
 5. [**Unbuffered vs. Buffered:** Explain the difference between unbuffered and buffered channels with a small code example.](\./beginner/ex5/solve.go)
-6. **WaitGroup Basics:** Use a `sync.WaitGroup` to wait for 3 goroutines to complete their work (e.g., printing a message).
+6. [**WaitGroup Basics:** Use a `sync.WaitGroup` to wait for 3 goroutines to complete their work (e.g., printing a message).](./beginner/ex6/solve.go)
 7. **Simple Counter (Race Condition):** Implement a global counter incremented by multiple goroutines without any synchronization. Observe the race condition.
 8. **Counter with Mutex:** Fix the simple counter problem using `sync.Mutex` to prevent race conditions.
 9. **Concurrent Summation:** Calculate the sum of elements in an array concurrently by dividing the array into chunks and processing each chunk in a separate goroutine.
