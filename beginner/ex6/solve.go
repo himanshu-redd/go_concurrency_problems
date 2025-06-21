@@ -24,3 +24,5 @@ func Sleep(wg *sync.WaitGroup, seconds int) {
 	defer wg.Done()
 	time.Sleep(time.Second * time.Duration(seconds))
 }
+
+// time is consumed around 5 seconds.
