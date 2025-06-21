@@ -10,13 +10,13 @@ func Solve(){
 	wg := &sync.WaitGroup{}
 	wg.Add(2)
 
-	go produce4(wg, ch)
-	go consume4(wg, ch)
+	go produce(wg, ch)
+	go consume(wg, ch)
 
 	wg.Wait()
 }
 
-func produce4(wg *sync.WaitGroup, ch chan int) {
+func produce(wg *sync.WaitGroup, ch chan int) {
 	defer wg.Done()
 	for i := 1; i <= 3; i++ {
 		ch <- i
@@ -24,7 +24,7 @@ func produce4(wg *sync.WaitGroup, ch chan int) {
 	close(ch)
 }
 
-func consume4(wg *sync.WaitGroup, ch chan int) {
+func consume(wg *sync.WaitGroup, ch chan int) {
 	defer wg.Done()
 	for val := range ch {
 		fmt.Println("val : ", val)
