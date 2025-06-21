@@ -14,7 +14,7 @@ func Solve() {
 		arr[i] = rand.Intn(500)
 	}
 
-	chunk := 10
+	chunk := 2 
 	chunkSize := len(arr) / chunk
 
 	wg := sync.WaitGroup{}
@@ -29,15 +29,18 @@ func Solve() {
 
 		go func(wg *sync.WaitGroup, mu *sync.Mutex, arr []int, left, right int, total *int) {
 			defer wg.Done()
+			localSum := 0
 			for j := left; j <= right; j++ {
 				mu.Lock()
-				*total += arr[j]
+				localSum += arr[j]
 				mu.Unlock()
 			}
+			*total += localSum
 		}(&wg, &mu, arr, left, right, &total)
 	}
 	wg.Wait()
 
+	// well, It's taking 20X time asynchronously to calculate the sum than synchronously.
 	fmt.Println("total sum : ", total, " time taken asynchronously: ", time.Now().Sub(begin))
 
 	total = 0
@@ -45,12 +48,12 @@ func Solve() {
 	for i := 0; i < 10000; i++ {
 		total += arr[i]
 	}
+
 	fmt.Println("total sum : ", total, " time taken synchronously: ", time.Now().Sub(begin))
 
 	solveWithoutMutex(arr)
 }
 
-// well, It's taking 20X time asynchronously to calculate the sum than synchronously.
 
 func solveWithoutMutex(arr []int) {
 	wg := sync.WaitGroup{}
@@ -83,7 +86,6 @@ func solveWithoutMutex(arr []int) {
 	}
 	wg.Wait()
 
+	// this is the most optimized way
 	fmt.Println("total sum : ", total, " time taken synchronously without mutex: ", time.Now().Sub(begin))
 }
-
-// breaking the array into two part and using channel is more optmized than other ways. 
