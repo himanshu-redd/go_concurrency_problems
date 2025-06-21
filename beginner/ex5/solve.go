@@ -12,13 +12,11 @@ func Solve(){
 	buffChan := make(chan int, 3)
 
 	wg := sync.WaitGroup{}
-	wg.Add(4)
+	wg.Add(5)
 	go produce(&wg, unbufChan1, 1)
 	go produce(&wg, unbufChan2, 2)
 	go produce(&wg, unbufChan3, 3)
 	go receivedUnbuffChans(&wg, buffChan, unbufChan1, unbufChan2, unbufChan3)
-
-	wg.Add(1)
 	go consume(&wg, buffChan)
 
 	wg.Wait()
