@@ -1,11 +1,11 @@
-package main
+package ex2 
 
 import (
 	"fmt"
 	"sync"
 )
 
-func extwo() {
+func Solve() {
 	wg := sync.WaitGroup{}
 	wg.Add(5)
 

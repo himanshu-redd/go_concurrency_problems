@@ -2,11 +2,11 @@
 
 These problems focus on the fundamentals of goroutines and basic channel usage.
 
-1. **Hello Goroutine:** Create a goroutine that prints "Hello from a goroutine!" and ensure the main goroutine waits for it to finish.  
-2. **Multiple Goroutines:** Launch 5 goroutines, each printing its unique ID.
-3. **Basic Channel Communication:** Create two goroutines. One sends an integer to a channel, and the other receives and prints it.
-4. **Buffered Channel:** Use a buffered channel of capacity 3. Send 3 integers and then receive and print them.
-5. **Unbuffered vs. Buffered:** Explain the difference between unbuffered and buffered channels with a small code example.
+1. [**Hello Goroutine:** Create a goroutine that prints "Hello from a goroutine!" and ensure the main goroutine waits for it to finish.](./ex1/solve.go)  
+2. [**Multiple Goroutines:** Launch 5 goroutines, each printing its unique ID.](./ex2/solve.go)
+3. [**Basic Channel Communication:** Create two goroutines. One sends an integer to a channel, and the other receives and prints it.](./ex3/solve.go)
+4. [**Buffered Channel:** Use a buffered channel of capacity 3. Send 3 integers and then receive and print them.](./ex4/solve.go)
+5. [**Unbuffered vs. Buffered:** Explain the difference between unbuffered and buffered channels with a small code example.](./ex5/solve.go)
 6. **WaitGroup Basics:** Use a `sync.WaitGroup` to wait for 3 goroutines to complete their work (e.g., printing a message).
 7. **Simple Counter (Race Condition):** Implement a global counter incremented by multiple goroutines without any synchronization. Observe the race condition.
 8. **Counter with Mutex:** Fix the simple counter problem using `sync.Mutex` to prevent race conditions.

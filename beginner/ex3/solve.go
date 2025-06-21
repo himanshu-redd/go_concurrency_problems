@@ -1,11 +1,11 @@
-package main
+package ex3 
 
 import (
 	"fmt"
 	"sync"
 )
 
-func ex3() {
+func Solve() {
 	ch := make(chan int)
 	wg := sync.WaitGroup{}
 	wg.Add(2)
