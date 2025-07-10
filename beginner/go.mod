@@ -1,3 +1,3 @@
-module github.com/concurrency
+module github.com/himanshu-redd/beginner
 
-go 1.24.3
+go 1.24.4

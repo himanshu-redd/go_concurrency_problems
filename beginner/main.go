@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/concurrency/ex15"
+	"github.com/himanshu-redd/beginner/ex16"
 )
 
-func main(){
+func main() {
 	fmt.Println("start")
-	ex15.Solve()
+	ex16.Solve()
 	fmt.Println("finish")
 }
