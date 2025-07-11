@@ -19,7 +19,7 @@ These problems focus on the fundamentals of goroutines and basic channel usage.
 15. [**Goroutine Leak (Basic):** Create a goroutine that runs indefinitely without a way to stop it. Identify why this is a leak.](./beginner/ex15/solve.go)
 16. [**Stopping a Goroutine (Channel Signal):** Stop a goroutine using a `done` channel.](./beginner/ex16/solve.go)
 17. [**Goroutine ID (Tricky):** How would you assign unique IDs to goroutines? (Hint: think about closure variables or a shared counter with mutex).](./beginner/ex18/solve.go)
-18. **Timeouts with Select:** Implement a `select` statement that times out after a certain duration if no message is received.
+18. [**Timeouts with Select:** Implement a `select` statement that times out after a certain duration if no message is received.](./beginner/ex18/solve.go)
 19. **Worker Pool (Fixed Size):** Create a worker pool with a fixed number of worker goroutines processing jobs from a job channel.
 20. **Error Handling in Goroutines:** How would you handle errors that occur within a goroutine and communicate them back to the main goroutine?
 21. **Ping-Pong Game (Two Goroutines):** Implement a classic ping-pong game where two goroutines send messages back and forth using channels.
