@@ -22,8 +22,8 @@ These problems focus on the fundamentals of goroutines and basic channel usage.
 18. [**Timeouts with Select:** Implement a `select` statement that times out after a certain duration if no message is received.](./beginner/ex18/solve.go)
 19. [**Worker Pool (Fixed Size):** Create a worker pool with a fixed number of worker goroutines processing jobs from a job channel.](./beginner/ex19/solve.go)
 20. **Error Handling in Goroutines:** How would you handle errors that occur within a goroutine and communicate them back to the main goroutine?
-21. **Ping-Pong Game (Two Goroutines):** Implement a classic ping-pong game where two goroutines send messages back and forth using channels.
-22. **Concurrent File Read:** Read multiple small text files concurrently and print their contents.
+21. [**Ping-Pong Game (Two Goroutines):** Implement a classic ping-pong game where two goroutines send messages back and forth using channels.](./beginner/ex21/solve.go)
+22. [**Concurrent File Read:** Read multiple small text files concurrently and print their contents.](./beginner/ex22/solve.go)
 23. **Simple Web Scraper (Concurrent):** Fetch the content of a few URLs concurrently. (No parsing needed, just fetching).
 24. **Atomic Operations (Basic):** Use `sync/atomic` to atomically increment a counter. Compare with mutex.
 25. **Broadcast Message:** Send a single message from one goroutine to multiple listening goroutines.

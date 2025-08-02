@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/himanshu-redd/beginner/ex19"
+	"github.com/himanshu-redd/beginner/ex22"
 )
 
 func main() {
 	fmt.Println("start")
-	ex19.Solve()
+	ex22.Solve()
 	fmt.Println("finish")
 }
