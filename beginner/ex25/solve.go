@@ -7,8 +7,8 @@ import (
 
 func Solve() {
 	wg := sync.WaitGroup{}
-	workerCnt := 10
-	var workerChans [10]chan int
+	workerCnt := 100
+	workerChans := make([]chan int, workerCnt)
 
 	for i := 0; i < workerCnt; i++ {
 		wg.Add(1)
@@ -20,7 +20,7 @@ func Solve() {
 
 	producerCh := make(chan int)
 	go producer(&wg, producerCh)
-	go fanout(&wg, producerCh, workerChans, workerCnt)
+	go fanout(&wg, producerCh, workerChans)
 
 	wg.Wait()
 }
@@ -31,7 +31,7 @@ func producer(wg *sync.WaitGroup, ch chan<- int) {
 	close(ch)
 }
 
-func fanout(wg *sync.WaitGroup, ch chan int, workerChans [10]chan int, workerCnt int) {
+func fanout(wg *sync.WaitGroup, ch chan int, workerChans []chan int) {
 	defer wg.Done()
 	for {
 		val, ok := <-ch
