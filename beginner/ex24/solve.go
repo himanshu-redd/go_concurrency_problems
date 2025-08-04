@@ -11,7 +11,7 @@ func Solve(){
 	var counter int32
 	wg := sync.WaitGroup{}
 
-	now := time.Now()
+	then := time.Now()
 	for i := 1; i <= 10000000; i++ {
 		wg.Add(1)
 		go func(){
@@ -20,11 +20,10 @@ func Solve(){
 		}()
 	}
 	wg.Wait()
-
-	fmt.Println("Final value without atomic operation: ", counter,",total time consumed: ",  time.Now().Sub(now).Seconds())
+	fmt.Println("Final value without atomic operation: ", counter,",total time consumed: ",  time.Since(then).Seconds())
 
 	counter = 0
-	now = time.Now()
+	then = time.Now()
 	for i := 1; i <= 10000000; i++ {
 		wg.Add(1)
 		go func(){
@@ -33,11 +32,11 @@ func Solve(){
 		}()
 	}
 	wg.Wait()
-	fmt.Println("Final value with atomic operation: ", counter, ",total time consumed: ",  time.Now().Sub(now).Seconds())
+	fmt.Println("Final value with atomic operation: ", counter, ",total time consumed: ",  time.Since(then).Seconds())
 
 
 	counter = 0
-	now = time.Now()
+	then = time.Now()
 	mu := sync.Mutex{}
 	for i := 1; i <= 10000000; i++ {
 		wg.Add(1)
@@ -49,5 +48,5 @@ func Solve(){
 		}()
 	}
 	wg.Wait()
-	fmt.Println("Final value with mutex: ", counter, ",total time consumed: ",  time.Now().Sub(now).Seconds())
+	fmt.Println("Final value with mutex: ", counter, ",total time consumed: ",  time.Since(then).Seconds())
 }
