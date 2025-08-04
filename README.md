@@ -26,7 +26,7 @@ These problems focus on the fundamentals of goroutines and basic channel usage.
 22. [**Concurrent File Read:** Read multiple small text files concurrently and print their contents.](./beginner/ex22/solve.go)
 23. **Simple Web Scraper (Concurrent):** Fetch the content of a few URLs concurrently. (No parsing needed, just fetching).
 24. [**Atomic Operations (Basic):** Use `sync/atomic` to atomically increment a counter. Compare with mutex.](./beginner/ex24/solve.go)
-25. **Broadcast Message:** Send a single message from one goroutine to multiple listening goroutines.
+25. [**Broadcast Message:** Send a single message from one goroutine to multiple listening goroutines.](./beginner/ex25/solve.go)
 26. **Context with Timeout:** Use `context.WithTimeout` to cancel an operation if it takes too long.
 27. **Context with Cancel:** Use `context.WithCancel` to explicitly cancel a running goroutine.
 28. **Concurrent Map Read/Write (Race):** Demonstrate a race condition when reading from and writing to a `map` concurrently without protection.
