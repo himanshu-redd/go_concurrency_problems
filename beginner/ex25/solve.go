@@ -27,9 +27,7 @@ func Solve() {
 
 func producer(wg *sync.WaitGroup, ch chan<- int) {
 	defer wg.Done()
-	for i := 1; i <= 100; i++ {
-		ch <- i
-	}
+	ch <- 127634 
 	close(ch)
 }
 
