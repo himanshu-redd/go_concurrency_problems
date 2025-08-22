@@ -22,10 +22,9 @@ func produce(wg *sync.WaitGroup, ch chan int) {
 }
 
 func consume (wg *sync.WaitGroup, ch chan int) {
-	select {
-	case val := <- ch:
+	val, ok  := <- ch
+	if ok {
 		fmt.Println("chan value: ", val)
-		break
 	}
 	wg.Done()
 }
