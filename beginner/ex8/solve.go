@@ -26,4 +26,4 @@ func increment(wg *sync.WaitGroup, mu *sync.Mutex) {
 	mu.Unlock()
 }
 
-// The output will be less than 1000 most of the time.
+// the output will be exactly 1000
