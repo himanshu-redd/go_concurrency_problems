@@ -22,9 +22,9 @@ func produce(wg *sync.WaitGroup, ch chan int) {
 }
 
 func consume (wg *sync.WaitGroup, ch chan int) {
+	defer wg.Done()
 	val, ok  := <- ch
 	if ok {
 		fmt.Println("chan value: ", val)
 	}
-	wg.Done()
 }
