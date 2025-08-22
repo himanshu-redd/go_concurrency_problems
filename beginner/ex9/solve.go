@@ -14,15 +14,32 @@ func Solve() {
 		arr[i] = rand.Intn(500)
 	}
 
-	chunk := 2 
-	chunkSize := len(arr) / chunk
+	solveWithMutex(arr)
+	solveSynchronously(arr)
+	solveWithoutMutex(arr)
+}
 
+func solveSynchronously(arr []int) {
+	total := 0
+	begin := time.Now()
+	for i := 0; i < 10000; i++ {
+		total += arr[i]
+	}
+	fmt.Println("total sum : ", total, " time taken synchronously: ", time.Now().Sub(begin))
+}
+
+func solveWithMutex(arr []int) {
 	wg := sync.WaitGroup{}
 	mu := sync.Mutex{}
+
+	chunk := 2
+	chunkSize := len(arr) / chunk
 	total := 0
 
-	begin := time.Now()
 	wg.Add(chunk)
+
+	begin := time.Now()
+
 	for i := 1; i <= chunk; i++ {
 		left := (i - 1) * chunkSize
 		right := left + chunkSize - 1
@@ -42,18 +59,7 @@ func Solve() {
 
 	// well, It's taking 20X time asynchronously to calculate the sum than synchronously.
 	fmt.Println("total sum : ", total, " time taken asynchronously: ", time.Now().Sub(begin))
-
-	total = 0
-	begin = time.Now()
-	for i := 0; i < 10000; i++ {
-		total += arr[i]
-	}
-
-	fmt.Println("total sum : ", total, " time taken synchronously: ", time.Now().Sub(begin))
-
-	solveWithoutMutex(arr)
 }
-
 
 func solveWithoutMutex(arr []int) {
 	wg := sync.WaitGroup{}
@@ -87,5 +93,5 @@ func solveWithoutMutex(arr []int) {
 	wg.Wait()
 
 	// this is the most optimized way
-	fmt.Println("total sum : ", total, " time taken synchronously without mutex: ", time.Now().Sub(begin))
+	fmt.Println("total sum : ", total, " time taken asynchronously without mutex: ", time.Now().Sub(begin))
 }
